@@ -27,6 +27,17 @@
   </head>
 
   <body>
+    <script>
+      (function () {
+        var base = "/axum-tibeb-site/";
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get("redirect");
+        if (redirect) {
+          var target = redirect.charAt(0) === "/" ? base + redirect.slice(1) : base + redirect;
+          window.history.replaceState(null, "", target);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
