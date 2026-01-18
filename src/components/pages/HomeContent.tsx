@@ -99,7 +99,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white" data-header-theme="light">
+      <section className="py-16 md:py-24 bg-black/25 backdrop-blur-md border border-white/20 ring-1 ring-white/10" data-header-theme="light">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
             <span className="text-[#D4A574] font-medium text-sm uppercase tracking-wider">Our Collections</span>
@@ -109,7 +109,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {collections.map((collection) => (
-              <button key={collection.id} onClick={() => navigateTo('collections')} className="group relative bg-[#FAF9F6] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 text-left">
+              <button key={collection.id} onClick={() => navigateTo('collections')} className="group relative bg-black/25 backdrop-blur-md border border-white/20 ring-1 ring-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 text-left">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img src={collection.image} alt={collection.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" width={400} height={500} />
                 </div>
@@ -175,7 +175,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
               <iframe src={contactInfo.mapsEmbedUrl} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="AXUM TIBEB Location"></iframe>
             </div>
 
-            <div className="bg-[#FAF9F6] rounded-2xl p-8 md:p-10">
+            <div className="bg-black/25 backdrop-blur-md border border-white/20 ring-1 ring-white/10 rounded-2xl p-8 md:p-10">
               <h3 className="text-2xl font-bold text-[#2C2C2C] mb-6">{contactInfo.name} {contactInfo.nameAmharic}</h3>
 
               <div className="space-y-6">
@@ -208,7 +208,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
             <span className="text-[#D4A574] font-medium text-sm uppercase tracking-wider">Customer Reviews</span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-8">What Our Customers Say</h2>
 
-            <div className="inline-flex flex-col items-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 md:p-12">
+            <div className="inline-flex flex-col items-center bg-black/25 backdrop-blur-md border border-white/20 ring-1 ring-white/10 rounded-2xl p-8 md:p-12">
               <div className="flex mb-4">
                 {[1, 2, 3, 4, 5].map((i) => (<Star key={i} className={`w-8 h-8 ${i <= 3 ? 'text-yellow-400 fill-yellow-400' : i === 4 ? 'text-yellow-400 fill-yellow-400/50' : 'text-gray-500'}`} />))}
               </div>
