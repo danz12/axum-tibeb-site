@@ -24,11 +24,22 @@
     <meta name="geo.placename" content="Addis Ababa" />
     <meta name="geo.position" content="9.0054;38.7636" />
     <meta name="ICBM" content="9.0054, 38.7636" />
-    <script type="module" crossorigin src="/axum-tibeb-site/assets/index-CN_C00Nv.js"></script>
-    <link rel="stylesheet" crossorigin href="/axum-tibeb-site/assets/index-DxsJc27W.css">
+    <script type="module" crossorigin src="/axum-tibeb-site/assets/index-BHqmAizI.js"></script>
+    <link rel="stylesheet" crossorigin href="/axum-tibeb-site/assets/index-CBX7wuta.css">
   </head>
 
   <body>
+    <script>
+      (function () {
+        var base = "/axum-tibeb-site/";
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get("redirect");
+        if (redirect) {
+          var target = redirect.charAt(0) === "/" ? base + redirect.slice(1) : base + redirect;
+          window.history.replaceState(null, "", target);
+        }
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>
