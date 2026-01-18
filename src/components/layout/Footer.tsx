@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { Clock, Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
-import { collections, contactInfo, socialLinks } from '@/data/siteData';
+import { contactInfo, socialLinks, type CollectionItem } from '@/data/siteData';
 
 type NavLink = {
   name: string;
@@ -8,11 +8,12 @@ type NavLink = {
 };
 
 type FooterProps = {
+  collections: CollectionItem[];
   navLinks: NavLink[];
   navigateTo: (page: string) => void;
 };
 
-const Footer: React.FC<FooterProps> = ({ navLinks, navigateTo }) => {
+const Footer: React.FC<FooterProps> = ({ collections, navLinks, navigateTo }) => {
   return (
     <footer className="bg-[#2C2C2C] text-white">
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-16">

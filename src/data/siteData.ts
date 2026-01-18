@@ -37,7 +37,15 @@ export const heroImages = [
   'https://d64gsuwffb70l.cloudfront.net/6964b06ff495a4b5c83a26f6_1768206592260_84ad3147.jpg',
 ];
 
-export const collections = [
+export type CollectionItem = {
+  id: number;
+  name: string;
+  nameAmharic: string;
+  image: string;
+  description: string;
+};
+
+export const collections: CollectionItem[] = [
   { id: 1, name: 'Traditional Wear', nameAmharic: 'Traditional Wear', image: 'https://d64gsuwffb70l.cloudfront.net/6964b06ff495a4b5c83a26f6_1768206575168_2df47493.png', description: 'Authentic Ethiopian traditional clothing' },
   { id: 2, name: 'Modern Ethiopian Styles', nameAmharic: 'Modern Ethiopian Styles', image: 'https://d64gsuwffb70l.cloudfront.net/6964b06ff495a4b5c83a26f6_1768206592260_84ad3147.jpg', description: 'Contemporary designs with Ethiopian flair' },
   { id: 3, name: 'Dresses', nameAmharic: 'Dresses', image: 'https://d64gsuwffb70l.cloudfront.net/6964b06ff495a4b5c83a26f6_1768206607713_b9d15a7d.jpg', description: 'Elegant dresses for every occasion' },

@@ -1,9 +1,10 @@
 ﻿import React from 'react';
 import { CheckCircle, ChevronRight, Clock, MapPin, MessageCircle, Phone, Star } from 'lucide-react';
 import SEOSchema from '@/components/SEOSchema';
-import { collections, contactInfo, heroImages, products, whyChooseUs } from '@/data/siteData';
+import { contactInfo, heroImages, products, whyChooseUs, type CollectionItem } from '@/data/siteData';
 
 type HomeContentProps = {
+  collections: CollectionItem[];
   heroIndex: number;
   lang: 'en' | 'am';
   navigateTo: (page: string) => void;
@@ -16,6 +17,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
   lang,
   navigateTo,
   onSelectProduct,
+  collections,
   t,
 }) => {
   return (

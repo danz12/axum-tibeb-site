@@ -8,7 +8,8 @@ import CollectionsContent from '@/components/pages/CollectionsContent';
 import ContactContent from '@/components/pages/ContactContent';
 import HomeContent from '@/components/pages/HomeContent';
 import ReviewsContent from '@/components/pages/ReviewsContent';
-import { contactInfo, heroImages, products } from '@/data/siteData';
+import { collections as defaultCollections, contactInfo, heroImages, products } from '@/data/siteData';
+import { COLLECTIONS_STORAGE_KEY, getStoredCollections } from '@/data/collectionsStore';
 
 const AppLayout: React.FC = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -19,6 +20,7 @@ const AppLayout: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [collectionsData, setCollectionsData] = useState(() => getStoredCollections());
   const [lang, setLang] = useState<'en' | 'am'>(() => {
     const saved = typeof window !== 'undefined' ? window.localStorage.getItem('axum_lang') : null;
     return saved === 'am' ? 'am' : 'en';
@@ -44,6 +46,16 @@ const AppLayout: React.FC = () => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === COLLECTIONS_STORAGE_KEY) {
+        setCollectionsData(getStoredCollections());
+      }
+    };
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
   useEffect(() => {
@@ -168,6 +180,7 @@ const AppLayout: React.FC = () => {
       default:
         return (
           <HomeContent
+            collections={collectionsData.length ? collectionsData : defaultCollections}
             heroIndex={heroIndex}
             lang={lang}
             navigateTo={navigateTo}
@@ -193,7 +206,7 @@ const AppLayout: React.FC = () => {
         headerTheme={headerTheme}
       />
       {renderPage()}
-      <Footer navLinks={navLinks} navigateTo={navigateTo} />
+      <Footer collections={collectionsData.length ? collectionsData : defaultCollections} navLinks={navLinks} navigateTo={navigateTo} />
       <FloatingActions t={t} />
     </div>
   );
